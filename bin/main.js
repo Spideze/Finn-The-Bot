@@ -45,7 +45,6 @@ bot.on("message", (msg) => {
 	// Main command handler
 	if(msg.content.startsWith("!")) {
 		if(commands.commands.hasOwnProperty(cmd)) {
-			console.log(colors.cGreen(msg.author.username) + " used " + msg.content + " in #" + msg.channel.name);
 			execCommand(msg, cmd, suffix);
 		}
 	}
