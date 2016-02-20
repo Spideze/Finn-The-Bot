@@ -73,8 +73,28 @@ var commands = {
 		process: function(bot, msg) {
 			bot.sendMessage(msg, "Pong!");
 		}
+	},	
+	
+	//Wikipedia-Grab
+	wiki: {
+		desc: "Grabs a Wikipedia Page.",
+		usage: "[command]",
+		shouldDisplay: true,
+		deleteCommand: true,
+		process: function(bot,msg) {
+			if(msg[1] == null) {
+				bot.sendMessage("B-Baka... You haven't looked for anything...");
+			}
+			else {
+				var result = msg.slice(1, splitted.length);
+				result = result.toString().split(",").join("_");
+				bot.sendMessage("http://en.wikipedia.org/wiki/" + result);
+			}
 	},
+	
+	
 }
+
 
 // Exports for the commands and aliases.
 exports.commands = commands;
